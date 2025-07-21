@@ -10,19 +10,21 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-       Schema::create('article_tag', function (Blueprint $table) {
-    $table->foreignId('article_id')->constrained()->onDelete('cascade');
-    $table->foreignId('tag_id')->constrained()->onDelete('cascade');
-});
+{
+    Schema::create('categories', function (Blueprint $table) {
+        $table->id();
+        $table->string('name')->unique();
+        $table->string('slug')->unique();
+        $table->timestamps();
+    });
+}
 
-    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('article_tag');
+        Schema::dropIfExists('categories');
     }
 };

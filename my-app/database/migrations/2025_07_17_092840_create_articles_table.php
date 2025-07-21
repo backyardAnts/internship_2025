@@ -9,17 +9,19 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-   public function up(): void
+    public function up(): void
 {
     Schema::create('articles', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('user_id')->constrained()->onDelete('cascade'); // article author
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->foreignId('category_id')->constrained()->onDelete('cascade');
         $table->string('title');
+        $table->string('slug')->unique();
         $table->string('image_url')->nullable();
-        $table->text('excerpt')->nullable(); // optional short summary
-        $table->longText('content'); // full article content
-        $table->timestamp('published_at')->nullable(); // optional publish time
-        $table->timestamps(); // created_at and updated_at
+        $table->text('excerpt')->nullable();
+        $table->longText('content');
+        $table->timestamp('published_at')->nullable();
+        $table->timestamps();
     });
 }
 
