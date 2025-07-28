@@ -19,7 +19,7 @@
     </div>
     <div class="test d-flex justify-content-end gap-2">
         <a href="/connection" class="btn btn-outline-secondary">Connection</a>
-        <a href="/offers" class="btn btn-warning fw-bold">Je m’abonne</a>
+        <a href="/register" class="btn btn-warning fw-bold">Je m’abonne</a>
     </div>
 </div>
 
